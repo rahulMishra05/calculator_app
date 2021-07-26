@@ -18,6 +18,37 @@ class HomePageState extends State<HomePage> {
 
       sum = num1 + num2;
     });
+
+    void doSubtraction() {
+    setState(() {
+      num1 = int.parse(t1.text);
+      num2 = int.parse(t2.text);
+
+      sum = num1 - num2;
+    });
+
+    void doMultiplication() {
+    setState(() {
+      num1 = int.parse(t1.text);
+      num2 = int.parse(t2.text);
+
+      sum = num1 * num2;
+    });
+
+    void doDivision() {
+    setState(() {
+      num1 = int.parse(t1.text);
+      num2 = int.parse(t2.text);
+
+      sum = num1 ~/ num2;
+    });
+
+    void doClear(){
+      setState(() {
+        t1.text = "0";
+        t2.text = "0";
+      });
+    }
   }
 
   @override
@@ -62,7 +93,7 @@ class HomePageState extends State<HomePage> {
                   new MaterialButton(
                       child: Text("-"),
                       color: Colors.greenAccent,
-                      onPressed: () {}),
+                      onPressed: doSubtraction),
                 ],
               ),
               new Padding(padding: const EdgeInsets.only(top: 20.0)),
@@ -72,13 +103,26 @@ class HomePageState extends State<HomePage> {
                   new MaterialButton(
                       child: Text("x"),
                       color: Colors.greenAccent,
-                      onPressed: () {}),
+                      onPressed: doMultiplication),
                   new MaterialButton(
                       child: Text("/"),
                       color: Colors.greenAccent,
-                      onPressed: () {}),
+                      onPressed: doDivision),
                 ],
               ),
+              new Padding(padding: const EdgeInsets.only(top: 20.0)),
+              new Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new MaterialButton(
+                    child: Text(
+                      "Clear",
+                      style: TextStyle(fontWeight: FontWeight.bold),),
+                    color: Colors.yellowAccent,
+                    onPressed: doClear
+                    ),
+                ],
+              )
             ],
           ),
         ));
