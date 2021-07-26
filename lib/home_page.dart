@@ -18,38 +18,42 @@ class HomePageState extends State<HomePage> {
 
       sum = num1 + num2;
     });
+  }
 
-    void doSubtraction() {
+  void doSubtraction() {
     setState(() {
       num1 = int.parse(t1.text);
       num2 = int.parse(t2.text);
 
       sum = num1 - num2;
     });
+  }
 
-    void doMultiplication() {
+  void doMultiplication() {
     setState(() {
       num1 = int.parse(t1.text);
       num2 = int.parse(t2.text);
 
       sum = num1 * num2;
     });
+  }
 
-    void doDivision() {
+  void doDivision() {
     setState(() {
       num1 = int.parse(t1.text);
       num2 = int.parse(t2.text);
 
       sum = num1 ~/ num2;
     });
+  }
 
-    void doClear(){
+    void doClear() {
       setState(() {
         t1.text = "0";
         t2.text = "0";
       });
     }
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -115,12 +119,12 @@ class HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   new MaterialButton(
-                    child: Text(
-                      "Clear",
-                      style: TextStyle(fontWeight: FontWeight.bold),),
-                    color: Colors.yellowAccent,
-                    onPressed: doClear
-                    ),
+                      child: Text(
+                        "Clear",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      color: Colors.yellowAccent,
+                      onPressed: doClear),
                 ],
               )
             ],
